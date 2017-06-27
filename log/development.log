@@ -2748,3 +2748,86 @@ Started GET "/assets/phones.js?body=1" for 10.0.2.2 at 2017-06-22 06:45:37 +0000
 
 
 Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2017-06-22 06:45:37 +0000
+
+
+Started GET "/" for 10.0.2.2 at 2017-06-27 01:27:59 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PhonesController#index as HTML
+  [1m[35mPhone Load (1.5ms)[0m  SELECT "phones".* FROM "phones"
+  Rendered phones/index.html.erb within layouts/application (150.2ms)
+Completed 200 OK in 821ms (Views: 801.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/devise_bootstrap_views.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/phones.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/common.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/font-awesome.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/phones.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2017-06-27 01:28:01 +0000

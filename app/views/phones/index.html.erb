@@ -1,4 +1,4 @@
-<h1>Listing phones</h1>
+<h1>端末一覧</h1>
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -25,9 +25,9 @@
         <td><%= phone.company %></td>
         <td><%= phone.price %></td>
         <td><%= phone.user %></td>
-        <td><%= link_to 'Show', phone %></td>
-        <td><%= link_to 'Edit', edit_phone_path(phone) %></td>
-        <td><%= link_to 'Destroy', phone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', phone %></td>
+        <td><%= link_to '編集', edit_phone_path(phone) %></td>
+        <td><%= link_to '削除', phone, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
