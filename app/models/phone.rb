@@ -1,12 +1,24 @@
-class Phone < ActiveRecord::Base
-    def self.import(file)
-        CSV.foreach(file.path, headers: true, encoding: 'Shift_JIS:UTF-8') do |row|
-            phone = Phone.new
-            phone.company = row[1]
-            phone.number = row[2]
-            phone.price = 2980
-            phone.user = row[4]
-            phone.save!
-        end
+# frozen_string_literal: true
+
+class Phone < ApplicationRecord
+  belongs_to :company
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      phone = Phone.new
+      phone.number = row[0] || '-'
+      phone.price = row[5] || '-'
+      phone.company_id = Company.find_by(name: row[11])&.id || nil
+      phone.user = row[13] || '-'
+      phone.start_date = parsed_date(row[16]) if row[16].present?
+      phone.save!
     end
+  end
+
+  private
+
+  def self.parsed_date(string)
+    arr = string.split('/')
+    Date.new(arr[0].to_i, arr[1].to_i, arr[2].to_i)
+  end
 end

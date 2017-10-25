@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PhonesController < ApplicationController
-  before_action :set_phone, only: [:show, :edit, :update, :destroy]
+  before_action :set_phone, only: %i[show edit update destroy]
 
   # GET /phones
   # GET /phones.json
@@ -9,8 +11,7 @@ class PhonesController < ApplicationController
 
   # GET /phones/1
   # GET /phones/1.json
-  def show
-  end
+  def show; end
 
   # GET /phones/new
   def new
@@ -18,8 +19,7 @@ class PhonesController < ApplicationController
   end
 
   # GET /phones/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /phones
   # POST /phones.json
@@ -62,18 +62,21 @@ class PhonesController < ApplicationController
   end
 
   def import
+    binding.pry
+    Company.import(params[:csv_file])
     Phone.import(params[:csv_file])
-    redirect_to "/phones"
+    redirect_to '/phones'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_phone
-      @phone = Phone.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def phone_params
-      params.fetch(:phone, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_phone
+    @phone = Phone.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def phone_params
+    params.fetch(:phone, {})
+  end
 end

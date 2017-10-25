@@ -1,0 +1,90 @@
+# This is the default configuration file. Enabling and disabling is configured
+# in separate files. This file adds all other parameters apart from Enabled.
+
+# require: rubocop-rspec
+
+# Common configuration.
+AllCops:
+  TargetRubyVersion: 2.4
+  # Include common Ruby source files.
+  Include:
+    - '**/*.gemspec'
+    - '**/*.rake'
+    - '**/config.ru'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Guardfile'
+    - 'db/fixtures/*'
+    - 'db/seeds/*'
+  Exclude:
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'db/fixtures/csv/*'
+    - 'db/fixtures/tsv/*'
+    - 'db/migrate/*'
+    - 'db/*schema.rb'
+    - 'doc/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'workspace/**/*'
+
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Rails:
+  Enabled: true
+
+# The project has a soft limit of 80 chars for line length, but up to 100 chars
+# are allowed in some cases.
+Metrics/LineLength:
+  Max: 125
+  AllowHeredoc: true
+  AllowURI: true
+
+# Methods should be short. But sometimes it is not possible.
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 20
+
+# Do not enforce documentation for all class definitions
+Documentation:
+  Enabled: false
+
+# permit Japanese comment, but it is recommended that comment is English
+Style/AsciiComments:
+  Enabled: false
+
+# Let's use -> not lambda
+
+Style/Lambda:
+  Enabled: false
+
+# Use raise not fail
+SignalException:
+  EnforcedStyle: only_raise
+
+Style/WordArray:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+# permit prefix 'set', 'get'
+AccessorMethodName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 21
+
+# temporary
+Metrics/BlockLength:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false

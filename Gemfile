@@ -1,54 +1,167 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
+ruby '2.4.1'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails', '~> 4.2'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.0'
+gem 'rails'
+gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
 
-# Use jquery as the JavaScript library
+gem 'bootstrap', '~> 4.0.0.beta'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+gem 'autoprefixer-rails'
+gem 'bootstrap_form'
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'jquery-ui-rails'
+gem 'nested_form'
+gem 'slim-rails'
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'vuejs-rails'
 
-gem 'bcrypt', '~> 3.1.7'
-gem 'nokogiri', '~> 1.6.1'
-gem 'rails-i18n', '4.0.1'
+gem 'active_model_serializers'
+gem 'airbrake'
+gem 'config'
 
-gem 'kaminari', '~> 0.15.1'
-
-gem 'date_validator', '~> 0.7.0'
-gem 'email_validator', '~> 1.4.0'
-
-gem 'jquery-ui-rails', '~> 4.2.1'
+gem 'by_star'
 
 gem 'devise'
-gem 'devise-bootstrap-views'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
-gem 'bootstrap-sass'
-gem 'bootstrap_form'
+gem 'gretel'
+
+gem 'activerecord-import'
+gem 'rest-client'
+gem 'seed-fu'
+
+gem 'kaminari'
+
+gem 'rack-mini-profiler'
+
+gem 'mechanize'
+
+gem 'puma_worker_killer'
+gem 'virtus'
+
+gem 'bootstrap3-datetimepicker-rails'
+gem 'momentjs-rails'
+
+# FIXME
+# Rails5にGlobalizeが対応したら修正する
+# after globalize adjusts to Rails5, fix code
+gem 'activemodel-serializers-xml'
+gem 'globalize', github: 'globalize/globalize'
+gem 'globalize-accessors'
+
+gem 'draper'
+
+# For handling user-agent
+gem 'rack-user_agent'
+
+gem 'newrelic_rpm'
+
+gem 'sidekiq'
+# For checking sidekiq dashboard
+gem 'sidekiq-failures'
+gem 'sidekiq-history'
+gem 'sidekiq-statistic'
+gem 'sinatra', require: false
+
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+
 gem 'font-awesome-rails'
+gem 'meta-tags'
 
-gem 'hirb', group: [ :development, :test ]
-gem 'hirb-unicode', group: [ :development, :test ]
-gem 'better_errors', group: [ :development, :test ]
-gem 'binding_of_caller', group: [ :development, :test ]
+gem 'slack-api'
 
+gem 'aws-sdk'
+gem 'fog-aws'
+
+gem 'carrierwave'
+gem 'piet'
+gem 'rmagick'
+
+gem 'nokogiri'
+gem 'poltergeist'
+
+gem 'http_accept_language'
+
+gem 'rack-attack'
+gem 'rack-reverse-proxy', require: 'rack/reverse_proxy'
+
+gem 'rack-cors', require: 'rack/cors'
+
+gem 'sitemap_generator'
+
+group :development do
+  gem 'listen', '~> 3.0.5'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'annotate'
+  gem 'bullet'
+  gem 'html2slim'
+  gem 'hub'
+  gem 'rails-erd'
+  gem 'rails_best_practices'
+
+  gem 'brakeman', require: false
+
+  # debug
+  gem 'awesome_print'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'hirb'
+
+  gem 'guard-rspec', require: false
+  gem 'letter_opener_web'
+  gem 'lol_dba'
+end
+
+group :development, :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'rails-controller-testing'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'tapp'
+  # slim_lint is a tool to help keep your Slim files clean and readable.
+  gem 'faker'
+  gem 'ffaker'
+  gem 'slim_lint'
+
+  gem 'capybara'
+end
+
+group :test do
+  gem 'json_expressions'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'simplecov', require: false
+  gem 'webmock'
+end
+
+group :development, :staging do
+  gem 'rack-dev-mark'
+end
+
+group :staging, :production do
+  gem 'rack-timeout'
+  gem 'rails_12factor'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

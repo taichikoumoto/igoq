@@ -1,0 +1,36 @@
+<% add_to_head do %>
+  <link href="<%= root_path %>sidekiq-statistic.css" media="screen" rel="stylesheet" type="text/css" />
+<% end %>
+
+<script type="text/javascript" src="<%= root_path %>realtime_statistic.js"></script>
+
+<div class='statistic'>
+  <h2><%= t('RealtimeStatistic') %></h2>
+
+  <ul class="nav nav-tabs">
+    <li><a href="<%= root_path %>statistic" class="statistic__tab"><%= t('Index') %></a></li>
+    <li class="active"><a href="<%= root_path %>statistic/realtime" class="statistic__tab"><%= t('Realtime') %></a></li>
+  </ul>
+
+  <div class='statistic__container'>
+    <div class="realtime">
+      <h2><%= t('Failed') %></h2>
+      <div class="realtime__failed-chart"></div>
+      <h2><%= t('Passed') %></h2>
+      <div class="realtime__passed-chart"></div>
+    </div>
+
+    <table class="workers-table table table-hover">
+      <thead>
+        <th><%= t('Exclude') %></th>
+        <th><%= t('Worker') %></th>
+      </thead>
+      <% @workers.each do |worker| %>
+        <tr>
+          <td class="worker"><input class="worker__checkbox" type="checkbox" name="<%= worker %>" value="<%= worker %>"></td>
+          <td class="worker"><a href="<%= root_path %>statistic/<%= worker %>"><%= worker %></a></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
