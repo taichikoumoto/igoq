@@ -28,6 +28,7 @@ AllCops:
     - 'tmp/**/*'
     - 'vendor/**/*'
     - 'workspace/**/*'
+    - 'Vagrantfile'
 
   DisplayCopNames: true
   DisplayStyleGuide: true

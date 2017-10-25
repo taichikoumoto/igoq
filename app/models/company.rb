@@ -1,4 +1,6 @@
-class Company < ActiveRecord::Base
+# frozen_string_literal: true
+
+class Company < ApplicationRecord
   has_many :phones
 
   def self.import(file)

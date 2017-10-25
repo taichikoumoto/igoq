@@ -62,7 +62,6 @@ class PhonesController < ApplicationController
   end
 
   def import
-    binding.pry
     Company.import(params[:csv_file])
     Phone.import(params[:csv_file])
     redirect_to '/phones'
