@@ -1,0 +1,160 @@
+.wrapper
+  .content
+    .alnright
+      p
+        |  2017年06月14日 
+      p
+        |  請求番号: 20170614-001 
+    h1
+      | 請求書
+    #invoiceHead.clearfix
+      .alpha
+        .recipientNameBox
+          p.recipientName
+            |  Example 様 
+          p.recipient_notes
+            | Example様
+          p.subject
+            |  件名：利用料金 
+        p.message
+          |  下記のとおりご請求申し上げます。 
+        dl.totalAmountPrice.clearfix
+          dt
+            | ご請求金額
+          dd
+            | ¥ 21,600 - 
+        div
+          | お支払い期限: 2017年06月30日
+      .beta_gamma.clearfix
+        .gamma
+
+        .beta
+          p.senderName
+            |  河本 
+          p
+
+    table.table_main[width="100%"]
+      tbody
+        tr
+          th
+            | 品番・品名
+          th[width="13%"]
+            | 数量
+          th[width="12%"]
+            | 単価
+          th[width="15%"]
+            | 金額
+        tr
+          td
+            |  2GBプラン 
+          td.alnright
+            |  10 
+            span.unit-name
+              | 玉
+          td.alnright
+            |  2980 
+          td.alnright
+            |    29800 
+        tr
+          td
+            |  4GBプラン 
+          td.alnright
+            |  10 
+            span.unit-name
+              | 本
+          td.alnright
+            |  3980 
+          td.alnright
+            |    39800 
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td
+
+          td.alnright
+            span.unit-name
+          td.alnright
+
+          td.alnright
+            |    
+        tr
+          td.blank
+          td[colspan="2"]
+            | 小計
+          td.alnright
+            | 69600
+        tr
+          td.blank
+          td[colspan="2"]
+          td.alnright
+        tr
+          td.blank
+          td[colspan="2"]
+            | 合計
+          td.alnright
+            | 69600
+    script
+      |  if ( !String.prototype.trim ) { String.prototype.trim = function(){ return this.toString().replace(/^\s+|\s+$/g, ''); }; } window.onload = function(){ var rn = document.getElementsByClassName("recipientName")[0], rn_text; if (typeof rn.textContent === 'string') { rn_text = rn.textContent; } else if (typeof rn.innerText === 'string') { rn_text = rn.innerText.replace(/\r\n/g, ''); } var rn_len = rn_text.trim().length; if(rn_len > 19) { var percent = Math.floor(19/rn_len*150); rn.style.fontSize = String(percent)+"%"; } } 
+    script
+      |  var stampArea = document.getElementById('stamp-area'); if (stampArea !== null) { var stamp = document.createElement('img'); stamp.id = "stamp"; stamp.className = "stampPreview"; stamp.onload = function() { if (this.height > this.width) { this.height = Math.min(this.height, 80); } else { this.width = Math.min(this.width, 80); } } stamp.src = "data:;base64, "; stampArea.appendChild(stamp); } 
