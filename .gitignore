@@ -21,3 +21,7 @@
 /yarn-error.log
 
 .byebug_history
+
+.idea/workspace.xml
+log/development.log
+/vendor/bundle/ruby/2.4.0/bundler/gems/globalize-35adbbd49285

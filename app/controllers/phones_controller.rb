@@ -7,6 +7,12 @@ class PhonesController < ApplicationController
   # GET /phones.json
   def index
     @phones = Phone.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"
+      end
+    end
   end
 
   # GET /phones/1
@@ -62,9 +68,15 @@ class PhonesController < ApplicationController
   end
 
   def import
+    Phone.destroy_all
+    Company.destroy_all
     Company.import(params[:csv_file])
     Phone.import(params[:csv_file])
     redirect_to '/phones'
+  end
+
+  def pdf
+
   end
 
   private
