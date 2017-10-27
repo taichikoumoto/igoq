@@ -9,8 +9,6 @@
 
 .row
   .col-12
-    h1
-      | 端末一覧
     .panel.panel-default
       .panel-body
         = form_tag(import_phones_path, :method => :post, multipart: true) do
@@ -18,6 +16,7 @@
             = file_field_tag :csv_file
           = submit_tag "CSVインポート", :class => "btn btn-primary"
         = link_to 'PDFダウンロード', pdf_phones_path, :class => "btn btn-primary"
+    h1 端末一覧
     table.table
       thead
         tr
