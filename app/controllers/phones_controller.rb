@@ -10,7 +10,7 @@ class PhonesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name"
+        render pdf: 'file_name'
       end
     end
   end
@@ -75,9 +75,7 @@ class PhonesController < ApplicationController
     redirect_to '/phones'
   end
 
-  def pdf
-
-  end
+  def pdf; end
 
   private
 

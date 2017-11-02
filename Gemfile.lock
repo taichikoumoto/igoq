@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/globalize/globalize.git
-  revision: 35adbbd4928577fef701b0986f7d7d035b0d4340
-  specs:
-    globalize (5.1.0.beta2)
-      activemodel (>= 4.2, < 5.2)
-      activerecord (>= 4.2, < 5.2)
-      request_store (~> 1.0)
-
-GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: 4b160bd19ecca7f97d7ac22dccd5fde9b0da5a9f
   branch: rails-5
@@ -572,6 +563,8 @@ GEM
       safe_yaml (~> 1.0.0)
     database_cleaner (1.6.1)
     debug_inspector (0.0.3)
+    declarative (0.0.10)
+    declarative-option (0.1.0)
     deep_merge (1.1.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -634,8 +627,25 @@ GEM
     get_process_mem (0.2.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    globalize-accessors (0.2.1)
-      globalize (~> 5.0, >= 5.0.0)
+    google-api-client (0.13.6)
+      addressable (~> 2.5, >= 2.5.1)
+      googleauth (~> 0.5)
+      httpclient (>= 2.8.1, < 3.0)
+      mime-types (~> 3.0)
+      representable (~> 3.0)
+      retriable (>= 2.0, < 4.0)
+    google_drive (2.1.6)
+      google-api-client (>= 0.11.0, < 0.14.0)
+      googleauth (>= 0.5.0, < 1.0.0)
+      nokogiri (>= 1.5.3, < 2.0.0)
+    googleauth (0.6.1)
+      faraday (~> 0.12)
+      jwt (>= 1.4, < 3.0)
+      logging (~> 2.0)
+      memoist (~> 0.12)
+      multi_json (~> 1.11)
+      os (~> 0.9)
+      signet (~> 0.7)
     gretel (3.0.9)
       rails (>= 3.1.0)
     guard (2.14.1)
@@ -661,6 +671,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_accept_language (2.1.1)
+    httpclient (2.8.3)
     hub (1.12.4)
     i18n (0.8.6)
     ice_nine (0.11.2)
@@ -675,7 +686,7 @@ GEM
     json (2.1.0)
     json_expressions (0.9.0)
     jsonapi-renderer (0.1.3)
-    jwt (1.5.6)
+    jwt (2.1.0)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -699,6 +710,10 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    little-plugger (1.1.4)
+    logging (2.2.2)
+      little-plugger (~> 1.1)
+      multi_json (~> 1.10)
     lol_dba (2.1.4)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
@@ -717,6 +732,7 @@ GEM
       nokogiri (~> 1.6)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
+    memoist (0.16.0)
     meta-tags (2.6.0)
       actionpack (>= 3.2.0, < 5.3)
     method_source (0.8.2)
@@ -729,7 +745,6 @@ GEM
     momentjs-rails (2.17.1)
       railties (>= 3.1)
     multi_json (1.12.2)
-    multi_xml (0.6.0)
     multipart-post (2.0.0)
     mustermann (1.0.1)
     nenv (0.3.0)
@@ -745,21 +760,11 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     ntlm-http (0.1.1)
-    oauth2 (1.4.0)
-      faraday (>= 0.8, < 0.13)
-      jwt (~> 1.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (>= 1.2, < 3)
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
-    omniauth-facebook (4.0.0)
-      omniauth-oauth2 (~> 1.2)
-    omniauth-oauth2 (1.4.0)
-      oauth2 (~> 1.0)
-      omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    os (0.9.6)
     parallel (1.12.0)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -884,6 +889,10 @@ GEM
       redis-store (>= 1.2, < 2)
     redis-store (1.3.0)
       redis (>= 2.2)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
     request_store (1.3.2)
     require_all (1.4.0)
     responders (2.4.0)
@@ -893,6 +902,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    retriable (3.1.1)
     rmagick (2.16.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
@@ -952,6 +962,11 @@ GEM
       sidekiq (>= 3.0.0)
     sidekiq-statistic (1.2.0)
       sidekiq (>= 3.3.4, < 5)
+    signet (0.8.1)
+      addressable (~> 2.3)
+      faraday (~> 0.9)
+      jwt (>= 1.5, < 3.0)
+      multi_json (~> 1.10)
     simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -1003,6 +1018,7 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    uber (0.1.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
@@ -1065,8 +1081,7 @@ DEPENDENCIES
   ffaker
   fog-aws
   font-awesome-rails
-  globalize!
-  globalize-accessors
+  google_drive
   gretel
   guard-rspec
   hirb
@@ -1087,7 +1102,6 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   omniauth
-  omniauth-facebook
   pg (~> 0.18)
   piet
   poltergeist

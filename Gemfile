@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem 'google_drive'
+
 gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 gem 'jquery-rails'
@@ -32,7 +34,6 @@ gem 'by_star'
 
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
 
 gem 'gretel'
 
@@ -56,8 +57,6 @@ gem 'momentjs-rails'
 # Rails5にGlobalizeが対応したら修正する
 # after globalize adjusts to Rails5, fix code
 gem 'activemodel-serializers-xml'
-gem 'globalize', github: 'globalize/globalize'
-gem 'globalize-accessors'
 
 gem 'draper'
 

@@ -17,7 +17,7 @@ body {
   color: #000; }
 
 .wrapper {
-  margin: 0 auto;
+  margin: 50px auto;
   width: 730px; }
 
 .content {
@@ -37,7 +37,7 @@ body {
 
 /*.............................................................General.................... */
 h1, h2, h3 {
-  margin: 0;
+  margin-bottom: 20px;
   padding: 0; }
 
 h1 {
@@ -99,8 +99,13 @@ h2 {
 .alnright {
   text-align: right; }
 
+.bankAccount {
+  text-align: center;
+}
+
 /*.............................................................Table................... */
 dl.totalAmountPrice {
+  margin-top: 70px;
   width: 80%;
   border-bottom: 1px solid #000;
   font-size: 130%; }
@@ -128,6 +133,8 @@ td, th {
 
 .table_main {
   //height: 506px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border-collapse: collapse; }
 
 .table_main th {

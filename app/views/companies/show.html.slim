@@ -26,7 +26,7 @@ p#notice = notice
           dt
             | ご請求金額
           dd
-            = "¥" + @company.phones.map(&:price).inject(:+).to_s(:delimited)
+            = "¥" + @company.phones.map {|phone| (phone.price * BigDecimal("1.08")).ceil}.inject(:+).to_s(:delimited)
         div
           | お支払い期限: <要確認>
       beta_gamma.clearfix
@@ -68,6 +68,24 @@ p#notice = notice
         tr
           td.blank
           td[colspan="2"]
-            | 合計
+            | 税別合計
           td.alnright
             = "¥" + @company.phones.map(&:price).inject(:+).to_s(:delimited)
+        tr
+          td.blank
+          td[colspan="2"]
+            | 消費税(8%)
+          td.alnright
+            = "¥" + @company.phones.map { |phone| (phone.price * BigDecimal("0.08")).ceil }.inject(:+).to_s(:delimited)
+        tr
+          td.blank
+          td[colspan="2"]
+            | 税込合計
+          td.alnright
+            = "¥" + @company.phones.map {|phone| (phone.price * BigDecimal("1.08")).ceil}.inject(:+).to_s(:delimited)
+
+    p.bankAccount
+      | おそれ入りますが、下記口座にお振込くださいますよう、お願い申し上げます。<br><br>
+        銀行名:  三菱東京UFJ銀行<br>
+        支店名:  振込第一支店<br>
+        口座番号: 当座 6490063
