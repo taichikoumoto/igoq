@@ -56,28 +56,23 @@ h2 {
 .alpha {
   float: left;
   text-align: left;
-  width: 385px; }
+  width: 440px;
+  display: inline; }
 
 .alpha .recipientName {
   margin-top: 0 !important; }
 
-.beta_gamma {
-  float: right;
-  width: 325px;
-  text-align: left;
-  margin-bottom: 20px; }
-
 .beta {
-  float: right;
+  float: left;
   text-align: left;
-  font-size: 12px;
-  margin-right: 5px;
-  width: 240px; }
+  margin-bottom: 20px;
+  display: inline; }
 
 .gamma {
   float: right;
-  width: 200px;
-  overflow: hidden; }
+  text-align: right;
+  vertical-align: top;
+  display: inline; }
 
 .recipientName {
   font-size: 150%;
