@@ -1,30 +1,28 @@
-.row
-  .col-12
-    ul.nav.nav-tabs role="tablist"
-      li.nav-item
-        = link_to '端末一覧', phones_path, class: 'nav-link'
-      li.nav-item
-        a.nav-link.active data-toggle="tab" role="tab"
-          =  '企業一覧'
+.col-12
+  ul.nav.nav-tabs role="tablist"
+    li.nav-item
+      = link_to '端末一覧', phones_path, class: 'nav-link'
+    li.nav-item
+      a.nav-link.active data-toggle="tab" role="tab"
+        =  '企業一覧'
 
-.row
-  .col-12
-    h1 企業一覧
-    table
-      thead
+.col-12
+  h1 企業一覧
+  table
+    thead
+      tr
+        th
+        th
+        th
+
+    tbody
+      - @companies.each do |company|
         tr
-          th
-          th
-          th
+          td = company.name
+          td = link_to '編集', edit_company_path(company)
+          td = link_to '削除', company, data: { confirm: 'Are you sure?' }, method: :delete
+          td = link_to 'PDF', company, :class => "btn btn-primary"
 
-      tbody
-        - @companies.each do |company|
-          tr
-            td = company.name
-            td = link_to '編集', edit_company_path(company)
-            td = link_to '削除', company, data: { confirm: 'Are you sure?' }, method: :delete
-            td = link_to 'PDF', company, :class => "btn btn-primary"
+  br
 
-    br
-
-    = link_to 'New Company', new_company_path
+  = link_to 'New Company', new_company_path
