@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :phones do
     collection do
       get :pdf
-      post :import
+      get :import
     end
   end
 end

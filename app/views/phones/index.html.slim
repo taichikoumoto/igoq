@@ -14,7 +14,7 @@
     /    .form-group
     /      = file_field_tag :csv_file
     .col-6
-      = submit_tag "CSVインポート", :class => "btn btn-primary"
+      = link_to "データ同期", import_phones_path, :class => "btn btn-primary"
     .col-6
       = link_to 'PDFダウンロード', pdf_phones_path, :class => "btn btn-primary"
   table.table

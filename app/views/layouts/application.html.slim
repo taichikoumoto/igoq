@@ -7,6 +7,20 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+    .container.contents_container
+      / flash messages
+      - flash.each do |flash_type, message|
+        - if message.present?
+          - alert_class = (flash_type == 'notice') ? 'alert-info' : 'alert-danger'
+          .alert.alert-info.alert-dismissible.fade.show class="#{alert_class}"
+            button.close data-dismiss="alert"
+              span  &times;
+            - if message.is_a?(String)
+              = message.html_safe
+            - elsif message.is_a?(Array)
+              ul.mb-0
+                - message.each do |m|
+                  li = m
     .container
       .row
         = yield

@@ -4,8 +4,8 @@ class Phone < ApplicationRecord
   belongs_to :company
 
   class << self
-    def import(file)
-      CSV.foreach(file.path, headers: true) do |row|
+    def import(data)
+      data.drop(2).each do |row|
         phone = Phone.new
         phone.number = row[0] || '-'
         phone.price = row[5] || '-'

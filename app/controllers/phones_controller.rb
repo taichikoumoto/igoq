@@ -68,11 +68,8 @@ class PhonesController < ApplicationController
   end
 
   def import
-    Phone.destroy_all
-    Company.destroy_all
-    Company.import(params[:csv_file])
-    Phone.import(params[:csv_file])
-    redirect_to '/phones'
+    DataSyncService.sync!
+    redirect_to '/phones', notice: 'データの同期が完了しました。'
   end
 
   def pdf; end
