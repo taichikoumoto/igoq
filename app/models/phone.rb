@@ -11,6 +11,7 @@ class Phone < ApplicationRecord
         phone.price = row[5] || '-'
         phone.company_id = Company.find_by(name: row[11])&.id || nil
         phone.user = row[13] || '-'
+        phone.excess_charge = 0
         phone.start_date = parsed_date(row[16]) if row[16].present?
         phone.save!
       end

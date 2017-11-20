@@ -65,6 +65,18 @@ p#notice = notice
             =  "¥" + @company.phones.first.price.to_s(:delimited)
           td.alnright
             =  "¥" + @company.phones.first.price.to_s(:delimited)
+        - if @company.phones.any? { |phone| phone.excess_charge > 0 }
+          tr
+            td
+              |  超過料金計
+            td.alnright
+              /= @company.phones.size
+              span.unit-name
+                /| 台
+            td.alnright
+              = "¥" + @company.phones.map(&:excess_charge).inject(:+).to_s(:delimited)
+            td.alnright
+              = "¥" + @company.phones.map(&:excess_charge).inject(:+).to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]

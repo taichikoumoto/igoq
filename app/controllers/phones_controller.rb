@@ -72,6 +72,11 @@ class PhonesController < ApplicationController
     redirect_to '/phones', notice: 'データの同期が完了しました。'
   end
 
+  def import_excess
+    ImportExcessService.execute!(params[:csv_file])
+    redirect_to "/phones", notice: 'インポートが完了しました。'
+  end
+
   def pdf; end
 
   private

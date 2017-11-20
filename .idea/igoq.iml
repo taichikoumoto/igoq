@@ -1681,6 +1681,26 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="declarative (vbundled(0.0.10)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/declarative-0.0.10/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/declarative-0.0.10/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="declarative-option (vbundled(0.1.0)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/declarative-option-0.1.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/declarative-option-0.1.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="deep_merge (vbundled(1.1.1)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/deep_merge-1.1.1/lib" />
@@ -2049,24 +2069,40 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="globalize (vbundled(5.1.0.beta2)) [path][gem]">
+      <library name="google-api-client (vbundled(0.13.6)) [path][gem]">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/globalize-35adbbd49285/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/globalize-35adbbd49285/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/rakelib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/samples" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/generated" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/globalize-35adbbd49285/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/globalize-35adbbd49285/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/rakelib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/samples" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google-api-client-0.13.6/generated" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="globalize-accessors (vbundled(0.2.1)) [path][gem]">
+      <library name="google_drive (vbundled(2.1.6)) [path][gem]">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/globalize-accessors-0.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google_drive-2.1.6/lib" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/globalize-accessors-0.2.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/google_drive-2.1.6/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="googleauth (vbundled(0.6.1)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/googleauth-0.6.1/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/googleauth-0.6.1/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -2199,6 +2235,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="httpclient (vbundled(2.8.3)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/httpclient-2.8.3/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/httpclient-2.8.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/httpclient-2.8.3/sample" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/httpclient-2.8.3/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/httpclient-2.8.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/httpclient-2.8.3/sample" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="hub (vbundled(1.12.4)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/hub-1.12.4/bin" />
@@ -2327,12 +2377,12 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="jwt (vbundled(1.5.6)) [path][gem]">
+      <library name="jwt (vbundled(2.1.0)) [path][gem]">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/jwt-1.5.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/jwt-2.1.0/lib" />
         </CLASSES>
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/jwt-1.5.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/jwt-2.1.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -2439,6 +2489,28 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="little-plugger (vbundled(1.1.4)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/little-plugger-1.1.4/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/little-plugger-1.1.4/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="logging (vbundled(2.2.2)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/script" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/script" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="lol_dba (vbundled(2.1.4)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/lol_dba-2.1.4/bin" />
@@ -2491,6 +2563,18 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/mechanize-2.7.5/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="memoist (vbundled(0.16.0)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/memoist-0.16.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/memoist-0.16.0/script" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/memoist-0.16.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/memoist-0.16.0/script" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -2595,16 +2679,6 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/multi_json-1.12.2/lib" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="multi_xml (vbundled(0.6.0)) [path][gem]">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/multi_xml-0.6.0/lib" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/multi_xml-0.6.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -2761,16 +2835,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="oauth2 (vbundled(1.4.0)) [path][gem]">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/oauth2-1.4.0/lib" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/oauth2-1.4.0/lib" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="omniauth (vbundled(1.6.1)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-1.6.1/lib" />
@@ -2783,28 +2847,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="omniauth-facebook (vbundled(4.0.0)) [path][gem]">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-facebook-4.0.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-facebook-4.0.0/example" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-facebook-4.0.0/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-facebook-4.0.0/example" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="omniauth-oauth2 (vbundled(1.4.0)) [path][gem]">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-oauth2-1.4.0/lib" />
-        </CLASSES>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/omniauth-oauth2-1.4.0/lib" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="orm_adapter (vbundled(0.5.0)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/orm_adapter-0.5.0/lib" />
@@ -2813,6 +2855,18 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/orm_adapter-0.5.0/lib" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/orm_adapter-0.5.0/gemfiles" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="os (vbundled(0.9.6)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/os-0.9.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/os-0.9.6/autotest" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/os-0.9.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/os-0.9.6/autotest" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -3363,6 +3417,16 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="representable (vbundled(3.0.4)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/representable-3.0.4/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/representable-3.0.4/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="request_store (vbundled(1.3.2)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/request_store-1.3.2/lib" />
@@ -3401,6 +3465,16 @@
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rest-client-2.0.2/bin" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/rest-client-2.0.2/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="retriable (vbundled(3.1.1)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/retriable-3.1.1/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/retriable-3.1.1/lib" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -3669,6 +3743,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="signet (vbundled(0.8.1)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/signet-0.8.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/signet-0.8.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/signet-0.8.1/website" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/signet-0.8.1/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/signet-0.8.1/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/signet-0.8.1/website" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="simplecov (vbundled(0.15.1)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/simplecov-0.15.1/lib" />
@@ -3905,6 +3993,16 @@
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.3/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="uber (vbundled(0.1.0)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/uber-0.1.0/lib" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/uber-0.1.0/lib" />
         </SOURCES>
       </library>
     </orderEntry>
