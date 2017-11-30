@@ -24,3 +24,4 @@
 
 /.idea/*
 log/development.log
+vendor/

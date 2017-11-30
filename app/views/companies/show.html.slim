@@ -101,4 +101,47 @@ p#notice = notice
         おそれ入りますが、振込手数料は貴社ご負担でよろしくお願いいたします。<br><br>
         銀行名:  三菱東京UFJ銀行<br>
         支店名:  振込第一支店<br>
-        口座番号: 当座 6490063
+        口座番号: 当座 6490156
+
+.wrapper.page-break
+  .content
+    .alnright
+      p
+        = Date.current.strftime('%Y年%-m月%-d日')
+    h1
+      | 内訳明細書
+    #invoiceHead.clearfix
+      .beta_gamma
+        .beta.clearfix
+          | SBSロジコム株式会社
+
+    table.table_main[width="100%"]
+      tbody
+        tr
+          th
+            | 電話番号
+          th
+            | 料金内訳
+          th
+            | 金額
+        - @company.phones.each do |phone|
+          tr
+            td
+              = phone.number
+            td.alnright
+              |  iGOQ端末レンタル料(2GB)
+            td.alnright
+              =  "¥" + phone.price.to_s(:delimited)
+          - if phone.excess_charge > 0
+            tr
+              td
+              td.alnright
+                | 別途有料使用分
+              td.alnright
+                = "¥" + phone.excess_charge.to_s(:delimited)
+        tr
+          td.blank
+          td
+            | 税込合計
+          td.alnright
+            = "¥" + (@company.phones.map(&:price).inject(:+) * 1.08).ceil.to_s(:delimited)
