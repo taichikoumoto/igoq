@@ -1,6 +1,7 @@
 default: &default
   username: postgres
   adapter: postgresql
+  password: taichigogo
   pool: 5
   timeout: 5000
 
