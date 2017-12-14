@@ -28,7 +28,7 @@
           td
             = phone.number
           td
-            = phone.company&.name
+            = phone.company.try(:name)
           td
             = phone.price
           td
