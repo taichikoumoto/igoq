@@ -21,7 +21,11 @@ class Phone < ApplicationRecord
 
     def parsed_date(string)
       arr = string.split('/')
-      Date.new(arr[0].to_i, arr[1].to_i, arr[2].to_i)
+      begin
+        Date.new(arr[0].to_i, arr[1].to_i, arr[2].to_i)
+      rescue
+        Date.current
+      end
     end
   end
 end
