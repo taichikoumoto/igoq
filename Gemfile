@@ -1,9 +1,10 @@
 ﻿# frozen_string_literal: true
+# frozen_string_literal: true
 
 source 'https://rubygems.org'
 ruby '2.2.6'
 
-gem 'sys-proctable'
+# gem 'sys-proctable'
 
 gem 'coffee-rails'
 gem 'pg'
@@ -13,9 +14,9 @@ gem 'uglifier'
 
 gem 'bootstrap', '~> 4.0.0.beta'
 
+gem 'bcrypt'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'bcrypt'
 
 gem 'google_drive'
 
@@ -57,8 +58,8 @@ gem 'carrierwave'
 gem 'piet'
 # gem 'rmagick'
 
-gem 'nokogiri'
 gem 'http_accept_language'
+gem 'nokogiri'
 
 gem 'rack-attack'
 gem 'rack-reverse-proxy', require: 'rack/reverse_proxy'
@@ -68,10 +69,10 @@ gem 'rack-cors', require: 'rack/cors'
 group :development do
   gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen'
   gem 'bullet'
   gem 'hub'
+  gem 'spring'
+  gem 'spring-watcher-listen'
   # debug
   gem 'awesome_print'
   gem 'better_errors'

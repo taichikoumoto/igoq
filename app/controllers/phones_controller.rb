@@ -74,7 +74,7 @@ class PhonesController < ApplicationController
 
   def import_excess
     ImportExcessService.execute!(params[:csv_file])
-    redirect_to "/phones", notice: 'インポートが完了しました。'
+    redirect_to '/phones', notice: 'インポートが完了しました。'
   end
 
   def pdf; end

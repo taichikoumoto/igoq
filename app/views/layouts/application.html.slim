@@ -22,6 +22,4 @@ html
                 - message.each do |m|
                   li = m
     .container
-      - if user_signed_in?
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger"
       = yield

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :pdf
       get :import
-      get :import_excess
+      post :import_excess
     end
   end
 end
