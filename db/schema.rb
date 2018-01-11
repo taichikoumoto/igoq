@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120030109) do
+ActiveRecord::Schema.define(version: 20180111023353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,20 +23,21 @@ ActiveRecord::Schema.define(version: 20171120030109) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string   "number",                    null: false
-    t.integer  "price",                     null: false
-    t.string   "user"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "number",            limit: 255,             null: false
+    t.integer  "price",                                     null: false
+    t.string   "user",              limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "company_id"
     t.date     "start_date"
-    t.integer  "excess_charge", default: 0, null: false
+    t.integer  "excess_charge_sms",             default: 0, null: false
+    t.integer  "excess_charge_tel",             default: 0, null: false
   end
 
   add_index "phones", ["company_id"], name: "index_phones_on_company_id", using: :btree

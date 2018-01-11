@@ -8,7 +8,8 @@ class ImportExcessService
         number = row[2].delete('-')
         phone = Phone.find_by(number: number)
         if phone
-          phone.excess_charge = row[9].to_i
+          phone.excess_charge_sms = row[7].to_i
+          phone.excess_charge_tel = row[8].to_i
           phone.save!
         end
       end

@@ -14,7 +14,7 @@
             | 毎度格別のお引き立てありがとうございます。<br>
               下記の通りご請求申し上げます。
           p
-            = "ご請求期間: #{Date.current.beginning_of_month.strftime('%Y年%-m月%-d日')}〜#{Date.current.end_of_month.strftime('%Y年%-m月%-d日')}(末日締め)"
+            = "ご請求期間: #{Date.current.next_month.beginning_of_month.strftime('%Y年%-m月%-d日')}〜#{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}(末日締め)"
             <br>
             | 支払い条件: 月末締め月末現金振込にて<br>
 
@@ -24,7 +24,7 @@
           dt
             | ご請求金額
           dd
-            = "¥" + (company.phones.map(&:price).inject(:+) * 1.08).ceil.to_s(:delimited)
+            = "¥" + (company.sum_of_phone_price.tax_included).ceil.to_s(:delimited)
         div
           = "お支払い期限: #{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
           <br><br>
@@ -62,37 +62,53 @@
           td.alnright
             =  "¥" + company.phones.first.price.to_s(:delimited)
           td.alnright
-            =  "¥" + company.phones.first.price.to_s(:delimited)
-        - if company.phones.any? { |phone| phone.excess_charge > 0 }
+            =  "¥" + company.sum_of_phone_price.to_s(:delimited)
+        - if company.sum_of_excess_charge > 0
           tr
             td
-              |  超過料金計
+              = "別途有料使用分(#{Date.current.last_month.month}月分)"
             td.alnright
-              /= company.phones.size
               span.unit-name
-            /| 台
             td.alnright
-              = "¥" + company.phones.map(&:excess_charge).inject(:+).to_s(:delimited)
             td.alnright
-              = "¥" + company.phones.map(&:excess_charge).inject(:+).to_s(:delimited)
+        - if company.sum_of_excess_charge_sms > 0
+          tr
+            td
+              = "　通信料 メール(SMS)(YM/他社宛)"
+            td.alnright
+              span.unit-name
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_sms.to_s(:delimited)
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_sms.to_s(:delimited)
+        - if company.sum_of_excess_charge_tel > 0
+          tr
+            td
+              = "　通話料 通信サービス「0570等」"
+            td.alnright
+              span.unit-name
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_tel.to_s(:delimited)
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_tel.to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]
             | 税別合計
           td.alnright
-            = "¥" + company.phones.map(&:price).inject(:+).to_s(:delimited)
+            = "¥" + company.sum_of_charge.to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]
             | 消費税(8%)
           td.alnright
-            = "¥" + (company.phones.map(&:price).inject(:+) * 0.08).ceil.to_s(:delimited)
+            = "¥" + company.sum_of_charge.tax.ceil.to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]
             | 税込合計
           td.alnright
-            = "¥" + (company.phones.map(&:price).inject(:+) * 1.08).ceil.to_s(:delimited)
+            = "¥" + company.sum_of_charge.tax_included.ceil.to_s(:delimited)
 
     p.bankAccount
       | 下記口座にお振込くださいますよう、お願い申し上げます。<br>
@@ -113,33 +129,42 @@
         .beta.clearfix
           | SBSロジコム株式会社
 
-    table.table_main[width="100%"]
-      tbody
-        tr
-          th
-            | 電話番号
-          th
-            | 料金内訳
-          th
-            | 金額
-        - company.phones.each do |phone|
+    - company.phones.each_slice(20).with_index do |phones, index|
+      table.page-break.table_main[width="100%"]
+        tbody
           tr
-            td
-              = phone.number
-            td.alnright
-              |  iGOQ端末レンタル料(2GB)
-            td.alnright
-              =  "¥" + phone.price.to_s(:delimited)
-          - if phone.excess_charge > 0
+            th
+              | 電話番号
+            th
+              | 料金内訳
+            th
+              | 金額
+          - phones.each do |phone|
             tr
+              td.alncenter
+                = phone.number
+              td.alnleft
+                |  iGOQ端末レンタル料(2GB)
+              td.alnright
+                =  "¥" + phone.price.to_s(:delimited)
+            - if phone.excess_charge_sms > 0
+              tr
+                td
+                td.alnleft
+                  = "#{Date.current.last_month.month}月分別途有料使用料 メール(SMS)(YM/他社宛)"
+                td.alnright
+                  = "¥" + phone.excess_charge_sms.to_s(:delimited)
+            - if phone.excess_charge_tel > 0
+              tr
+                td
+                td.alnleft
+                  = "#{Date.current.last_month.month}月分別途有料使用料 通信サービス「0570等」"
+                td.alnright
+                  = "¥" + phone.excess_charge_tel.to_s(:delimited)
+          - if index == company.phones.each_slice(20).to_a.length - 1
+            tr
+              td.blank
               td
+                | 税抜合計
               td.alnright
-                | 別途有料使用分
-              td.alnright
-                = "¥" + phone.excess_charge.to_s(:delimited)
-        tr
-          td.blank
-          td
-            | 税込合計
-          td.alnright
-            = "¥" + (company.phones.map(&:price).inject(:+) * 1.08).ceil.to_s(:delimited)
+                = "¥" + company.sum_of_charge.to_s(:delimited)

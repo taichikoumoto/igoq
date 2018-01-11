@@ -44,7 +44,6 @@ RSpec.describe CompaniesController, type: :controller do
 
   describe 'GET #index' do
     it 'returns a success response' do
-      company = Company.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_success
     end

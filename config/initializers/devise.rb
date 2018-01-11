@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/LineLength
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.secret_key = '562b1404030747f6c268d4b1c0cc2125421c73dce3ef5a72c69114262ad100f487a83dd0f3ee4a7a0f7629bea6dfd2e5c1182b8c9ddeb4daff16bfa850923f38'
+  config.secret_key =
+    '562b1404030747f6c268d4b1c0cc2125421c73dce3ef5a72c69114262ad100f487a83dd0f3ee4a7a0f7629bea6dfd2e5c1182b8c9ddeb4daff16bfa850923f38'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -111,7 +113,8 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '9e81776ae63e5091fe875d60917e9ec2455607e4eb2604a5cb41ecee5e06d1bd1ac8d55959cac2ce1092af3606312cb774e2cb7612adfec2ce9fb6d401d58766'
+  # config.pepper =
+  # '9e81776ae63e5091fe875d60917e9ec2455607e4eb2604a5cb41ecee5e06d1bd1ac8d55959cac2ce1092af3606312cb774e2cb7612adfec2ce9fb6d401d58766'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -278,3 +281,4 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+# rubocop:enable Metrics/LineLength
