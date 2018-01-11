@@ -34,4 +34,10 @@ class Company < ApplicationRecord
   def sum_of_excess_charge_tel
     phones.map(&:excess_charge_tel).inject(:+)
   end
+
+  def sliced_phones_array_for_invoice
+    top_phones = phones.take(22)
+    left_phones = phones.drop(22).each_slice(29).to_a
+    left_phones.unshift(top_phones)
+  end
 end

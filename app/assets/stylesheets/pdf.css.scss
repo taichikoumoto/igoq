@@ -17,8 +17,7 @@ body {
   color: #000; }
 
 .wrapper {
-  margin: 50px auto;
-  width: 730px; }
+  margin: 50px auto; }
 
 .content {
   padding: 0px 10px;
@@ -173,6 +172,17 @@ td, th {
 .clearfix {
   display: block; }
 
+.page-number {
+  position: absolute; /* 位置の相対指定 */
+  right: 0; /* 右から０ピクセルの位置指定 */
+  bottom: 0; /* 上から０ピクセルの位置指定 */
+}
+
+.a4 {
+  width: 172mm; /* A4縦の幅 */
+  height: 251mm; /* A4縦の高さ */
+  position: relative; /* 固定ヘッダーの基準座標を定義 */
+}
 
 // 改ページ
 .page-break {
