@@ -164,7 +164,7 @@
                 = "#{Date.current.last_month.month}月分別途有料使用料 通信サービス「0570等」"
               td.alnright
                 = "¥" + phone.excess_charge_tel.to_s(:delimited)
-        - if index == company.phones.each_slice(20).to_a.length - 1
+        - if index == company.total_pages - 2
           tr
             td.blank
             td
