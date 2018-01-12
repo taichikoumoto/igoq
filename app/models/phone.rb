@@ -11,9 +11,13 @@ class Phone < ApplicationRecord
         name = 'SBSゼンツウ' if name =~ /SBSゼンツウ/
         next if Company.find_by(name: name).blank?
 
+        # FIXME: この辺りのロジックリファクタリング
         if row[16].present?
           start_date = parsed_date(row[16])
           next if start_date >= Date.current.beginning_of_month + 2.months
+        else
+          # 課金開始日がない場合は未契約と判断
+          next
         end
         phone = Phone.new
         phone.number = row[0] || '-'
@@ -22,7 +26,7 @@ class Phone < ApplicationRecord
         phone.user = row[13] || '-'
         phone.excess_charge_sms = 0
         phone.excess_charge_tel = 0
-        phone.start_date = parsed_date(row[16]) if row[16].present?
+        phone.start_date = parsed_date(row[16])
         phone.save!
       end
     end

@@ -9,7 +9,7 @@ class Company < ApplicationRecord
       # SBSゼンツウはマージ
       name = 'SBSゼンツウ' if name =~ /SBSゼンツウ/
       next if name =~ /SBS即配/
-      next if row[5].to_i == 0
+      next if row[5].to_i == 0 || row[16].blank?
       company = Company.find_or_initialize_by(name: name)
       company.save
     end
@@ -20,7 +20,7 @@ class Company < ApplicationRecord
   end
 
   def sum_of_phone_price
-    phones.map(&:price).inject(:+)
+    phones.map(&:price).inject(:+) || 0
   end
 
   def sum_of_excess_charge
@@ -28,11 +28,11 @@ class Company < ApplicationRecord
   end
 
   def sum_of_excess_charge_sms
-    phones.map(&:excess_charge_sms).inject(:+)
+    phones.map(&:excess_charge_sms).inject(:+) || 0
   end
 
   def sum_of_excess_charge_tel
-    phones.map(&:excess_charge_tel).inject(:+)
+    phones.map(&:excess_charge_tel).inject(:+) || 0
   end
 
   def total_pages
