@@ -41,6 +41,7 @@
         .gamma
           = image_tag("seal.png")
 
+
     table.table_main[width="100%"]
       tbody
         tr
@@ -117,58 +118,59 @@
         支店名:  振込第一支店<br>
         口座番号: 当座 6490156
 
-.wrapper.a4
-  .content
-    .alnright
-      p
-        = Date.current.strftime('%Y年%-m月%-d日')
-    h1
-      | 内訳明細書
-    .invoiceHead.clearfix
-      .beta_gamma
-        .beta.clearfix
-          | SBSロジコム株式会社
+  span.page-number
+    = "1 / #{company.total_pages}"
 
-    - company.sliced_phones_array_for_invoice.each_with_index do |phones, index|
-      .page-break.a4
-        table.table_main[width="100%"]
-          tbody
+- company.sliced_phones_array_for_invoice.each_with_index do |phones, index|
+  .wrapper.page-break.a4.content
+    - if index == 0
+      .alnright
+        p
+          = Date.current.strftime('%Y年%-m月%-d日')
+      h1
+        | 内訳明細書
+      .invoiceHead.clearfix
+        .beta_gamma
+          .beta.clearfix
+            | SBSロジコム株式会社
+    table.table_main[width="100%"]
+      tbody
+        tr
+          th
+            | 電話番号
+          th
+            | 料金内訳
+          th
+            | 金額
+        - phones.each do |phone|
+          tr
+            td.alncenter
+              = phone.number
+            td.alnleft
+              |  iGOQ端末レンタル料(2GB)
+            td.alnright
+              =  "¥" + phone.price.to_s(:delimited)
+          - if phone.excess_charge_sms > 0
             tr
-              th
-                | 電話番号
-              th
-                | 料金内訳
-              th
-                | 金額
-            - phones.each do |phone|
-              tr
-                td.alncenter
-                  = phone.number
-                td.alnleft
-                  |  iGOQ端末レンタル料(2GB)
-                td.alnright
-                  =  "¥" + phone.price.to_s(:delimited)
-              - if phone.excess_charge_sms > 0
-                tr
-                  td
-                  td.alnleft
-                    = "#{Date.current.last_month.month}月分別途有料使用料 メール(SMS)(YM/他社宛)"
-                  td.alnright
-                    = "¥" + phone.excess_charge_sms.to_s(:delimited)
-              - if phone.excess_charge_tel > 0
-                tr
-                  td
-                  td.alnleft
-                    = "#{Date.current.last_month.month}月分別途有料使用料 通信サービス「0570等」"
-                  td.alnright
-                    = "¥" + phone.excess_charge_tel.to_s(:delimited)
-            - if index == company.phones.each_slice(20).to_a.length - 1
-              tr
-                td.blank
-                td
-                  | 税抜合計
-                td.alnright
-                  = "¥" + company.sum_of_charge.to_s(:delimited)
+              td
+              td.alnleft
+                = "#{Date.current.last_month.month}月分別途有料使用料 メール(SMS)(YM/他社宛)"
+              td.alnright
+                = "¥" + phone.excess_charge_sms.to_s(:delimited)
+          - if phone.excess_charge_tel > 0
+            tr
+              td
+              td.alnleft
+                = "#{Date.current.last_month.month}月分別途有料使用料 通信サービス「0570等」"
+              td.alnright
+                = "¥" + phone.excess_charge_tel.to_s(:delimited)
+        - if index == company.phones.each_slice(20).to_a.length - 1
+          tr
+            td.blank
+            td
+              | 税抜合計
+            td.alnright
+              = "¥" + company.sum_of_charge.to_s(:delimited)
 
-        span.page-number
-          = "1 / 2"
+    span.page-number
+      = "#{index + 2} / #{company.total_pages}"

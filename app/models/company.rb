@@ -35,9 +35,13 @@ class Company < ApplicationRecord
     phones.map(&:excess_charge_tel).inject(:+)
   end
 
+  def total_pages
+    sliced_phones_array_for_invoice.length + 1
+  end
+
   def sliced_phones_array_for_invoice
-    top_phones = phones.take(22)
-    left_phones = phones.drop(22).each_slice(29).to_a
+    top_phones = phones.take(18)
+    left_phones = phones.drop(18).each_slice(27).to_a
     left_phones.unshift(top_phones)
   end
 end
