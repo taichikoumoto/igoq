@@ -11,8 +11,8 @@ class Phone < ApplicationRecord
         name = 'SBSゼンツウ' if name =~ /SBSゼンツウ/
         next if Company.find_by(name: name).blank?
 
-        start_date = row[16]
-        if start_date.present?
+        if row[16].present?
+          start_date = parsed_date(row[16])
           next if start_date >= Date.current.beginning_of_month + 2.months
         end
         phone = Phone.new
@@ -22,7 +22,7 @@ class Phone < ApplicationRecord
         phone.user = row[13] || '-'
         phone.excess_charge_sms = 0
         phone.excess_charge_tel = 0
-        phone.start_date = parsed_date(start_date) if start_date.present?
+        phone.start_date = parsed_date(row[16]) if row[16].present?
         phone.save!
       end
     end
