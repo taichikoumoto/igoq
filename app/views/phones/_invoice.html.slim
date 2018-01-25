@@ -24,7 +24,7 @@
           dt
             | ご請求金額
           dd
-            = "¥" + (company.sum_of_phone_price.tax_included).ceil.to_s(:delimited)
+            = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
         div
           = "お支払い期限: #{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
           <br><br>
@@ -103,13 +103,13 @@
           td[colspan="2"]
             | 消費税(8%)
           td.alnright
-            = "¥" + company.sum_of_charge.tax.ceil.to_s(:delimited)
+            = "¥" + company.sum_of_charge.tax.to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]
             | 税込合計
           td.alnright
-            = "¥" + company.sum_of_charge.tax_included.ceil.to_s(:delimited)
+            = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
 
     p.bankAccount
       | 下記口座にお振込くださいますよう、お願い申し上げます。<br>
