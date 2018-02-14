@@ -1,4 +1,4 @@
-class ChangePhoneColumns < ActiveRecord::Migration[5.0]
+class ChangePhoneColumns < ActiveRecord::Migration
   def up
     remove_column :phones, :firstmonth
     remove_column :phones, :company
