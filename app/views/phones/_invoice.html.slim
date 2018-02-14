@@ -27,8 +27,6 @@
             = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
         div
           = "お支払い期限: #{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
-          <br><br>
-          | ※ 金融機関休業日の場合は翌営業日
 
       .beta-gamma
         .beta.clearfix
