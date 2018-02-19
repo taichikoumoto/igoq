@@ -9,7 +9,17 @@ class CompaniesController < ApplicationController
   end
 
   # GET /companies/1
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'detail',                        # pdf ファイル名
+               encording: 'UTF-8',                   # 日本語を使う場合には指定する
+               layout: 'application.pdf.slim' # レイアウトファイルの指定
+        # show_as_html: params[:debug].present? # debug するか？
+      end
+    end
+  end
 
   # GET /companies/new
   def new

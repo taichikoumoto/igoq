@@ -4,8 +4,8 @@ html
     meta charset="UTF-8"
     title
       | Igoq
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = wicked_pdf_stylesheet_link_tag    'application', media: 'all'
+    = wicked_pdf_javascript_include_tag 'application'
     = csrf_meta_tags
   body
     .container.contents_container
