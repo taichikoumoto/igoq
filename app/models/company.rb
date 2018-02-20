@@ -7,7 +7,7 @@ class Company < ApplicationRecord
     data.drop(2).each do |row|
       name = row[11]
       # SBSゼンツウはマージ
-      name = 'SBSゼンツウ' if name =~ /SBSゼンツウ/
+      name = 'SBSゼンツウ株式会社' if name =~ /SBSゼンツウ/
       next if name =~ /SBS即配/
       next if row[5].to_i.zero? || row[16].blank?
       company = Company.find_or_initialize_by(name: name)
