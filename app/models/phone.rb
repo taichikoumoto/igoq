@@ -8,7 +8,7 @@ class Phone < ApplicationRecord
       data.drop(2).each do |row|
         name = row[11]
         # SBSゼンツウはマージ
-        name = 'SBSゼンツウ' if name =~ /SBSゼンツウ/
+        name = 'SBSゼンツウ株式会社' if name =~ /SBSゼンツウ/
         next if Company.find_by(name: name).blank?
 
         # FIXME: この辺りのロジックリファクタリング
