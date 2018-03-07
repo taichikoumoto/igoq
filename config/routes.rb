@@ -2,12 +2,15 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  resources :companies
-  root 'phones#index'
-  resources :phones do
+  root 'home#index'
+  resources :companies do
     collection do
       get :pdf
       get :accounts
+    end
+  end
+  resources :phones do
+    collection do
       get :import
       post :import_excess
     end

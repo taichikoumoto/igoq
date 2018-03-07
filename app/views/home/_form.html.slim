@@ -1,0 +1,12 @@
+= form_for(@phone) do |f|
+  - if @phone.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@phone.errors.count, "error")
+        |  prohibited this phone from being saved:
+      ul
+        - @phone.errors.full_messages.each do |message|
+          li
+            = message
+  .actions
+    = f.submit

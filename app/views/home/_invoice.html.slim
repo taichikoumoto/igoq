@@ -1,0 +1,174 @@
+.wrapper.page-break.a4
+  .content
+    .alnright
+      p
+        = Date.current.strftime('%Y年%-m月%-d日')
+    h1
+      | 請求書
+    .invoiceHead.clearfix
+      .alpha
+        .recipientNameBox
+          p.recipientName
+            = "#{company.name} 御中"
+          p
+            | 毎度格別のお引き立てありがとうございます。<br>
+              下記の通りご請求申し上げます。
+          p
+            = "ご請求期間: #{Date.current.next_month.beginning_of_month.strftime('%Y年%-m月%-d日')}〜#{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}(末日締め)"
+            <br>
+            | 支払い条件: 月末締め月末現金振込にて<br>
+
+          p.subject
+            |  件名：利用料金
+        dl.totalAmountPrice.clearfix
+          dt
+            | ご請求金額
+          dd
+            = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
+        div
+          = "お支払い期限: #{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
+
+      .beta-gamma
+        .beta.clearfix
+          | SBSロジコム株式会社<br>
+            営業本部 輸送営業開発部<br><br>
+            東京都墨田区太平4-1-3<br>
+            オリナスタワー10F<br>
+            TEL 03-3829-3441<br>
+            FAX 03-3829-2390
+        .gamma
+          = image_tag("seal.png")
+
+
+    table.table_main[width="100%"]
+      tbody
+        tr
+          th
+            | 品名
+          th[width="13%"]
+            | 数量
+          th[width="12%"]
+            | 単価
+          th[width="15%"]
+            | 金額
+        tr
+          td
+            |  iGOQ端末レンタル料(2GB)
+          td.alnright
+            =  company.phones.size
+            span.unit-name
+              | 台
+          td.alnright
+            =  "¥" + company.phones.first.price.to_s(:delimited)
+          td.alnright
+            =  "¥" + company.sum_of_phone_price.to_s(:delimited)
+        - if company.sum_of_excess_charge > 0
+          tr
+            td
+              = "別途有料使用分(#{Date.current.last_month.month}月分)"
+            td.alnright
+              span.unit-name
+            td.alnright
+            td.alnright
+        - if company.sum_of_excess_charge_sms > 0
+          tr
+            td
+              = "　通信料 メール(SMS)(YM/他社宛)"
+            td.alnright
+              span.unit-name
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_sms.to_s(:delimited)
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_sms.to_s(:delimited)
+        - if company.sum_of_excess_charge_tel > 0
+          tr
+            td
+              = "　通話料 通信サービス「0570等」"
+            td.alnright
+              span.unit-name
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_tel.to_s(:delimited)
+            td.alnright
+              = "¥" + company.sum_of_excess_charge_tel.to_s(:delimited)
+        tr
+          td.blank
+          td[colspan="2"]
+            | 税別合計
+          td.alnright
+            = "¥" + company.sum_of_charge.to_s(:delimited)
+        tr
+          td.blank
+          td[colspan="2"]
+            | 消費税(8%)
+          td.alnright
+            = "¥" + company.sum_of_charge.tax.to_s(:delimited)
+        tr
+          td.blank
+          td[colspan="2"]
+            | 税込合計
+          td.alnright
+            = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
+
+    p.bankAccount
+      | 下記口座にお振込くださいますよう、お願い申し上げます。<br>
+        おそれ入りますが、振込手数料は貴社ご負担でよろしくお願いいたします。<br><br>
+        銀行名:  三菱東京UFJ銀行<br>
+        支店名:  振込第一支店<br>
+        口座番号: 当座 6490156
+
+  span.page-number
+    = "1 / #{company.total_pages}"
+
+- company.sliced_phones_array_for_invoice.each_with_index do |phones, index|
+  .wrapper.page-break.a4.content
+    - if index == 0
+      .alnright
+        p
+          = Date.current.strftime('%Y年%-m月%-d日')
+      h1
+        | 内訳明細書
+      .invoiceHead.clearfix
+        .beta_gamma
+          .beta.clearfix
+            | SBSロジコム株式会社
+    table.table_main[width="100%"]
+      tbody
+        tr
+          th
+            | 電話番号
+          th
+            | 料金内訳
+          th
+            | 金額
+        - phones.each do |phone|
+          tr
+            td.alncenter
+              = phone.number
+            td.alnleft
+              |  iGOQ端末レンタル料(2GB)
+            td.alnright
+              =  "¥" + phone.price.to_s(:delimited)
+          - if phone.excess_charge_sms > 0
+            tr
+              td
+              td.alnleft
+                = "#{Date.current.last_month.month}月分別途有料使用料 メール(SMS)(YM/他社宛)"
+              td.alnright
+                = "¥" + phone.excess_charge_sms.to_s(:delimited)
+          - if phone.excess_charge_tel > 0
+            tr
+              td
+              td.alnleft
+                = "#{Date.current.last_month.month}月分別途有料使用料 通信サービス「0570等」"
+              td.alnright
+                = "¥" + phone.excess_charge_tel.to_s(:delimited)
+        - if index == company.total_pages - 2
+          tr
+            td.blank
+            td
+              | 税抜合計
+            td.alnright
+              = "¥" + company.sum_of_charge.to_s(:delimited)
+
+    span.page-number
+      = "#{index + 2} / #{company.total_pages}"

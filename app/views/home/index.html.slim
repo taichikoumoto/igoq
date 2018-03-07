@@ -1,0 +1,54 @@
+.home
+  p.direction ！！最初に左側のデータ処理を行なってください。！！
+  .col-12.buttons
+    .row
+      .col-3.button-cell
+        p.button-description 最初に押してください。
+        = link_to "データ同期", import_phones_path, :class => "btn btn-primary function_buttons button-to-wait"
+      .col-3.separator.button-cell
+        = form_tag(import_excess_phones_path, :method => :post, multipart: true) do
+          .form-group
+            p.button-description 追加料金データをインポートしてください。
+            = file_field_tag :csv_file
+            = submit_tag "CSVインポート", :class => "btn btn-primary function_buttons button-to-wait"
+      .col-3.button-cell
+        = link_to '請求書PDFダウンロード', pdf_companies_path, :class => "btn btn-primary function_buttons button-to-wait"
+      .col-3.button-cell
+        = link_to '口座振替CSVダウンロード', accounts_companies_path(format: 'csv'), :class => "btn btn-primary function_buttons"
+
+  br
+  .col-12
+    h1 企業一覧
+    table.company
+      tbody
+        - @companies.each do |company|
+          tr
+            td = company.name
+            td = link_to 'PDF', company, :class => "btn btn-primary"
+            td = link_to company_path(company), data: {confirm: 'Are you sure?'}, method: :delete do
+              | 削除
+
+  br
+  .col-12
+    h1 端末一覧
+    label.toggle-phones.mt-3.mb-3 for="toggle-phones" 表示する
+    input type="checkbox" class="toggle-phones" id="toggle-phones"
+    table.table.d-none#phones_table
+      tbody
+        - @phones.each do |phone|
+          tr
+            td
+              = phone.number
+            td
+              = phone.company.try(:name)
+            td
+              = phone.price
+            td
+              = phone.user
+            td
+              = phone.start_date
+            td
+              = link_to '編集', edit_phone_path(phone)
+            td
+              = link_to '削除', phone, method: :delete, data: { confirm: '本当に削除しますか？' }
+

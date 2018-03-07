@@ -1,0 +1,51 @@
+.home {
+  position:relative;
+  h1 {
+    margin: 20px 0 0 0;
+    padding: 0 0 10px 0;
+    border-bottom: solid 1px;
+  }
+  p.direction {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .buttons {
+    padding: 50px 50px 70px 50px;
+    //margin: 10px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 20px;
+  }
+  .row {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .button-cell {
+      padding: 0;
+    }
+    .separator {
+      border-right: solid 1px;
+    }
+    .button-description {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+  }
+  .function_buttons {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+  table.company {
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

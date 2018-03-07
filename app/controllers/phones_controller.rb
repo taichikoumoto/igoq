@@ -7,12 +7,6 @@ class PhonesController < ApplicationController
   # GET /phones.json
   def index
     @phones = Phone.all
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: 'file_name'
-      end
-    end
   end
 
   # GET /phones/1
@@ -69,24 +63,12 @@ class PhonesController < ApplicationController
 
   def import
     DataSyncService.sync!
-    redirect_to '/phones', notice: 'データの同期が完了しました。'
+    redirect_to root_path, notice: 'データの同期が完了しました。'
   end
 
   def import_excess
     ImportExcessService.execute!(params[:csv_file])
-    redirect_to '/phones', notice: 'インポートが完了しました。'
-  end
-
-  def pdf; end
-
-  def accounts
-    respond_to do |format|
-      format.html
-      format.csv do
-        @data = SheetRepository.accounts_data
-        send_data render_to_string.gsub("\"\"",""), type: :csv
-      end
-    end
+    redirect_to root_path, notice: 'インポートが完了しました。'
   end
 
   private

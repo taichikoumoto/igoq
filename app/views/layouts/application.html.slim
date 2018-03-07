@@ -8,7 +8,12 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    .container.contents_container
+    #grayout
+    - if controller.controller_name == 'home'
+      nav class="navbar navbar-dark bg-dark"
+        span.navbar-brand iGOQ請求管理
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger ml-auto"
+    .container.contents_container.mt-2
       / flash messages
       - flash.each do |flash_type, message|
         - if message.present?
