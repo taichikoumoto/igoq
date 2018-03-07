@@ -1,3 +1,7 @@
 a:visited {
     color: #fff;
 }
+
+a.nav-link {
+    color: #495057;
+}
