@@ -2,15 +2,19 @@
 
 class SheetRepository
   class << self
-    def data
-      worksheet_session.rows
+    def phones_data
+      worksheet_session[0].rows
+    end
+
+    def accounts_data
+      worksheet_session[4].rows
     end
 
     private
 
     def worksheet_session
       session = GoogleDrive::Session.from_service_account_key('../igoq_service_account_key.json')
-      session.spreadsheet_by_key('16aOnqzBRU-HAj73blzfwu02XMYd0jqKL5RiDtR86YdI').worksheets[0]
+      session.spreadsheet_by_key('16aOnqzBRU-HAj73blzfwu02XMYd0jqKL5RiDtR86YdI').worksheets
 
       # レコード数を取得
       # p ws.num_rows

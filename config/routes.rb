@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :phones do
     collection do
       get :pdf
+      get :accounts
       get :import
       post :import_excess
     end

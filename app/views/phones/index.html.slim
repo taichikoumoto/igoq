@@ -11,19 +11,18 @@
 .col-12
   h1 端末一覧
   .row
-    .col-4
+    .col-3
       = link_to "データ同期", import_phones_path, :class => "btn btn-primary"
-    .col-4
+    .col-3
       = form_tag(import_excess_phones_path, :method => :post, multipart: true) do
         .form-group
           = file_field_tag :csv_file
           = submit_tag "CSVインポート", :class => "btn btn-primary"
-    .col-4
+    .col-3
       = link_to 'PDFダウンロード', pdf_phones_path, :class => "btn btn-primary"
+    .col-3
+      = link_to '口座振替CSV', accounts_phones_path(format: 'csv'), :class => "btn btn-primary"
   table.table
-    thead
-      tr
-        th[colspan="3"]
     tbody
       - @phones.each do |phone|
         tr

@@ -79,6 +79,16 @@ class PhonesController < ApplicationController
 
   def pdf; end
 
+  def accounts
+    respond_to do |format|
+      format.html
+      format.csv do
+        @data = SheetRepository.accounts_data
+        send_data render_to_string.gsub("\"\"",""), type: :csv
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

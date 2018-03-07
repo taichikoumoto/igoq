@@ -3,7 +3,7 @@
 class DataSyncService
   class << self
     def sync!
-      data = SheetRepository.data
+      data = SheetRepository.phones_data
       Phone.destroy_all
       Company.destroy_all
       Company.import(data)
