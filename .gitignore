@@ -24,3 +24,4 @@
 **/*.log
 vendor/
 .DS_Store
+*.pem
