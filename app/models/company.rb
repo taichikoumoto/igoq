@@ -60,8 +60,8 @@ class Company < ApplicationRecord
   end
 
   def sliced_phones_array_for_invoice
-    items_number_of_first_page = 18 / number_of_price_items_per_phone
-    items_per_page = 27 / number_of_price_items_per_phone
+    items_number_of_first_page = (18 / number_of_price_items_per_phone).ceil
+    items_per_page = (27 / number_of_price_items_per_phone).ceil
     top_phones = phones.take(items_number_of_first_page)
     left_phones = phones.drop(items_number_of_first_page)
                       .each_slice(items_per_page)
@@ -70,6 +70,7 @@ class Company < ApplicationRecord
   end
 
   def number_of_price_items_per_phone
+    return 1 if phones.blank?
     phones.map do |phone|
       number_of_items = 1
       number_of_items += 1 if phone.option_price > 0
