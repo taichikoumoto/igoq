@@ -11,38 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111023353) do
+ActiveRecord::Schema.define(version: 20180327221025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "companies", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_account_transfer", default: false
+    t.string   "notice_to_transfer",  default: ""
   end
 
   create_table "phones", force: :cascade do |t|
-    t.string   "number",            limit: 255,             null: false
-    t.integer  "price",                                     null: false
-    t.string   "user",              limit: 255
+    t.string   "number",                        null: false
+    t.integer  "price",                         null: false
+    t.string   "user"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id"
     t.date     "start_date"
-    t.integer  "excess_charge_sms",             default: 0, null: false
-    t.integer  "excess_charge_tel",             default: 0, null: false
+    t.integer  "excess_charge_sms", default: 0, null: false
+    t.integer  "excess_charge_tel", default: 0, null: false
+    t.integer  "option_price",      default: 0
+    t.integer  "option_discount",   default: 0
+    t.integer  "discount",          default: 0
   end
 
   add_index "phones", ["company_id"], name: "index_phones_on_company_id", using: :btree
 
-  create_table "users", id: :bigserial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",              default: "", null: false
     t.string   "encrypted_password", default: "", null: false
     t.datetime "created_at",                      null: false

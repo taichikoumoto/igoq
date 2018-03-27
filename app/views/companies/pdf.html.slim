@@ -1,2 +1,3 @@
 - Company.all.each do |company|
+  - next if company.phones.blank?
   = render partial: 'invoice', locals:{ company: company }

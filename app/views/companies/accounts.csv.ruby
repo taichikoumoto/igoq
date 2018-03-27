@@ -11,7 +11,7 @@ csv_str = CSV.generate do |csv|
     # SBSゼンツウはマージ
     name = 'SBSゼンツウ株式会社' if name =~ /SBSゼンツウ/
     company = Company.find_by(name: name)
-    next if company.blank? || row[13] != '〇'
+    next if company.blank? || row[14] != '〇'
     datum = [
       3,
       '',
@@ -19,12 +19,12 @@ csv_str = CSV.generate do |csv|
       '',
       20,
       company.sum_of_charge.tax_included,
-      row[14],
       row[15],
       row[16],
       row[17],
       row[18],
       row[19],
+      row[20],
       '',
       '',
       '',

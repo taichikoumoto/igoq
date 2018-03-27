@@ -27,6 +27,11 @@ class Phone < ApplicationRecord
         phone.excess_charge_sms = 0
         phone.excess_charge_tel = 0
         phone.start_date = parsed_date(row[16])
+
+        phone.discount = row[2]
+        phone.option_price = row[3] == 'IP無線' ? 500 : 0
+        phone.option_discount = row[4]
+
         phone.save!
       end
     end

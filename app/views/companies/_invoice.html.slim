@@ -110,11 +110,14 @@
             = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
 
     p.bankAccount
-      | 下記口座にお振込くださいますよう、お願い申し上げます。<br>
-        おそれ入りますが、振込手数料は貴社ご負担でよろしくお願いいたします。<br><br>
-        銀行名:  三菱東京UFJ銀行<br>
-        支店名:  振込第一支店<br>
-        口座番号: 当座 6490156
+      - if company.is_account_transfer
+        = company.notice_to_transfer
+      - else
+        | 下記口座にお振込くださいますよう、お願い申し上げます。<br>
+          おそれ入りますが、振込手数料は貴社ご負担でよろしくお願いいたします。<br><br>
+          銀行名:  三菱東京UFJ銀行<br>
+          支店名:  振込第一支店<br>
+          口座番号: 当座 6490156
 
   span.page-number
     = "1 / #{company.total_pages}"
@@ -162,6 +165,20 @@
                 = "#{Date.current.last_month.month}月分別途有料使用料 通信サービス「0570等」"
               td.alnright
                 = "¥" + phone.excess_charge_tel.to_s(:delimited)
+          - if phone.option_price > 0
+            tr
+              td
+              td.alnleft
+                = "#{Date.current.last_month.month}月分IP無線使用料"
+              td.alnright
+                = "¥" + phone.option_price.to_s(:delimited)
+          - if phone.option_discount > 0
+            tr
+              td
+              td.alnleft
+                = "#{Date.current.last_month.month}月分グループ会社割引"
+              td.alnright
+                = "- ¥" + phone.option_discount.to_s(:delimited)
         - if index == company.total_pages - 2
           tr
             td.blank

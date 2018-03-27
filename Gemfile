@@ -75,6 +75,7 @@ group :development do
   # debug
   gem 'awesome_print'
   gem 'better_errors'
+  gem 'rails-erd'
 end
 
 group :development, :test do

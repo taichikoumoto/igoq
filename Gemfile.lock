@@ -79,6 +79,7 @@ GEM
       mime-types (>= 1.16)
     case_transform (0.2)
       activesupport
+    choice (0.2.0)
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -287,6 +288,11 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6)
       rails-deprecated_sanitizer (>= 1.0.1)
+    rails-erd (1.5.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (4.2.10)
@@ -324,6 +330,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-graphviz (1.2.3)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     sass (3.5.3)
@@ -371,8 +378,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sys-proctable (1.1.5-universal-aix-5)
-    sys-proctable (1.1.5-universal-mingw32)
     sysexits (1.2.0)
     tapp (1.5.1)
       thor
@@ -447,6 +452,7 @@ DEPENDENCIES
   rack-timeout
   rack-user_agent
   rails (~> 4.2.10)
+  rails-erd
   rest-client
   rubocop
   sass-rails
@@ -455,7 +461,6 @@ DEPENDENCIES
   slim_lint
   spring
   spring-watcher-listen
-  sys-proctable
   tapp
   tzinfo-data
   uglifier
