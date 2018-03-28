@@ -7,7 +7,7 @@ class SheetRepository
     end
 
     def accounts_data
-      worksheet_session[4].rows
+      worksheet_session[3].rows
     end
 
     private

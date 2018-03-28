@@ -16,7 +16,7 @@
           p
             = "ご請求期間: #{Date.current.next_month.beginning_of_month.strftime('%Y年%-m月%-d日')}〜#{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}(末日締め)"
             <br>
-            | 支払い条件: 月末締め月末現金振込にて<br>
+            = "支払い条件: #{company.is_account_transfer ? company.transfer_description : "月末締め月末現金振込にて"}"
 
           p.subject
             |  件名：利用料金
@@ -26,7 +26,7 @@
           dd
             = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
         div
-          = "お支払い期限: #{Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
+          = "#{company.is_account_transfer ? "お引落日: " + company.payment_deadline : "お支払い期限: " + Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
 
       .beta-gamma
         .beta.clearfix
@@ -47,9 +47,9 @@
             | 品名
           th[width="13%"]
             | 数量
-          th[width="12%"]
+          th[width="17%"]
             | 単価
-          th[width="15%"]
+          th[width="17%"]
             | 金額
         - if company.sum_of_2gb > 0
           tr
@@ -106,27 +106,25 @@
         - if company.sum_of_option_price > 0
           tr
             td
-              = "IP無線使用料"
+              = "オプション料金"
             td.alnright
               = company.num_of_option_price
               span.unit-name
                 | 台
             td.alnright
-              = "¥500"
             td.alnright
               = "¥" + company.sum_of_option_price.to_s(:delimited)
-        - if company.sum_of_option_discount > 0
+        - if company.sum_of_discount > 0
           tr
             td
-              = "グループ会社割引"
+              = "割引"
             td.alnright
-              = company.num_of_option_discount
+              = company.num_of_discount
               span.unit-name
                 | 台
             td.alnright
-              = "- ¥500"
             td.alnright
-              = "- ¥" + company.sum_of_option_discount.to_s(:delimited)
+              = "- ¥" + company.sum_of_discount.to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]
@@ -148,7 +146,7 @@
 
     p.bankAccount
       - if company.is_account_transfer
-        = company.notice_to_transfer
+        = company.notice_to_transfer.html_safe
       - else
         | 下記口座にお振込くださいますよう、お願い申し上げます。<br>
           おそれ入りますが、振込手数料は貴社ご負担でよろしくお願いいたします。<br><br>
@@ -206,16 +204,16 @@
             tr
               td
               td.alnleft
-                = "#{Date.current.last_month.month}月分IP無線使用料"
+                = "#{Date.current.next_month.month}月分オプション料金"
               td.alnright
                 = "¥" + phone.option_price.to_s(:delimited)
-          - if phone.option_discount > 0
+          - if phone.discount > 0
             tr
               td
               td.alnleft
-                = "#{Date.current.last_month.month}月分グループ会社割引"
+                = "#{Date.current.next_month.month}月分割引"
               td.alnright
-                = "- ¥" + phone.option_discount.to_s(:delimited)
+                = "- ¥" + phone.discount.to_s(:delimited)
         - if index == company.total_pages - 2
           tr
             td.blank

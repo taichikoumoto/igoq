@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327221025) do
+ActiveRecord::Schema.define(version: 20180328032552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20180327221025) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_account_transfer", default: false
-    t.string   "notice_to_transfer",  default: ""
+    t.boolean  "is_account_transfer",  default: false
+    t.string   "notice_to_transfer",   default: ""
+    t.string   "transfer_description", default: ""
+    t.string   "payment_deadline",     default: ""
   end
 
   create_table "phones", force: :cascade do |t|
@@ -35,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180327221025) do
     t.integer  "excess_charge_sms", default: 0, null: false
     t.integer  "excess_charge_tel", default: 0, null: false
     t.integer  "option_price",      default: 0
-    t.integer  "option_discount",   default: 0
     t.integer  "discount",          default: 0
   end
 

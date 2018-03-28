@@ -19,16 +19,18 @@ class Company < ApplicationRecord
       name = 'SBSゼンツウ株式会社' if name =~ /SBSゼンツウ/
       company = Company.find_by(name: name)
       next if company.blank?
-      if row[14] == '〇'
+      if row[16] == '〇'
         company.is_account_transfer = true
-        company.notice_to_transfer = row[13]
+        company.transfer_description = row[13]
+        company.payment_deadline = row[14]
+        company.notice_to_transfer = row[15]
         company.save
       end
     end
   end
 
   def sum_of_charge
-    sum_of_phone_price + sum_of_excess_charge + sum_of_option_price - sum_of_option_discount
+    sum_of_phone_price + sum_of_excess_charge + sum_of_option_price - sum_of_discount
   end
 
   def sum_of_phone_price
@@ -67,20 +69,20 @@ class Company < ApplicationRecord
     phones.map(&:excess_charge_tel).inject(:+) || 0
   end
 
+  def sum_of_discount
+    phones.map(&:discount).inject(:+) || 0
+  end
+
   def sum_of_option_price
     phones.map(&:option_price).inject(:+) || 0
   end
 
-  def sum_of_option_discount
-    phones.map(&:option_discount).inject(:+) || 0
+  def num_of_discount
+    phones.to_a.count { |phone| phone.discount > 0 }
   end
 
   def num_of_option_price
     phones.to_a.count { |phone| phone.option_price > 0 }
-  end
-
-  def num_of_option_discount
-    phones.to_a.count { |phone| phone.option_discount > 0 }
   end
 
   def total_pages
@@ -102,7 +104,6 @@ class Company < ApplicationRecord
     phones.map do |phone|
       number_of_items = 1
       number_of_items += 1 if phone.option_price > 0
-      number_of_items += 1 if phone.option_discount > 0
       number_of_items += 1 if phone.discount > 0
       number_of_items
     end.max

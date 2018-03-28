@@ -21,7 +21,7 @@ class Phone < ApplicationRecord
         end
         phone = Phone.new
         phone.number = row[0] || '-'
-        phone.price = row[5] || '-'
+        phone.price = row[1] == '2GB' ? 2980 : 3980
         phone.company_id = Company.find_by(name: name).try(:id) || nil
         phone.user = row[13] || '-'
         phone.excess_charge_sms = 0
@@ -29,8 +29,7 @@ class Phone < ApplicationRecord
         phone.start_date = parsed_date(row[16])
 
         phone.discount = row[2]
-        phone.option_price = row[3] == 'IP無線' ? 500 : 0
-        phone.option_discount = row[4]
+        phone.option_price = row[4]
 
         phone.save!
       end
