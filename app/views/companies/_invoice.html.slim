@@ -26,7 +26,7 @@
           dd
             = "¥" + company.sum_of_charge.tax_included.to_s(:delimited)
         div
-          = "#{company.is_account_transfer ? "お引落日: " + company.payment_deadline : "お支払い期限: " + Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
+          = "#{company.is_account_transfer ? "振替予定日: " + company.payment_deadline : "お支払い期限: " + Date.current.next_month.end_of_month.strftime('%Y年%-m月%-d日')}"
 
       .beta-gamma
         .beta.clearfix
