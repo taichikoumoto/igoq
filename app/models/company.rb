@@ -48,11 +48,11 @@ class Company < ApplicationRecord
   end
 
   def num_of_2gb
-    phones.count { |phone| phone.price == 2980 }
+    phones.to_a.count { |phone| phone.price == 2980 }
   end
 
   def num_of_5gb
-    phones.count { |phone| phone.price == 3980 }
+    phones.to_a.count { |phone| phone.price == 3980 }
   end
 
   def sum_of_excess_charge
@@ -76,11 +76,11 @@ class Company < ApplicationRecord
   end
 
   def num_of_option_price
-    phones.count { |phone| phone.option_price > 0 }
+    phones.to_a.count { |phone| phone.option_price > 0 }
   end
 
   def num_of_option_discount
-    phones.count { |phone| phone.option_discount > 0 }
+    phones.to_a.count { |phone| phone.option_discount > 0 }
   end
 
   def total_pages
