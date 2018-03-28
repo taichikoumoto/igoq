@@ -51,17 +51,30 @@
             | 単価
           th[width="15%"]
             | 金額
-        tr
-          td
-            |  iGOQ端末レンタル料(2GB)
-          td.alnright
-            =  company.phones.size
-            span.unit-name
-              | 台
-          td.alnright
-            =  "¥" + company.phones.first.price.to_s(:delimited)
-          td.alnright
-            =  "¥" + company.sum_of_phone_price.to_s(:delimited)
+        - if company.sum_of_2gb > 0
+          tr
+            td
+              |  iGOQ端末レンタル料(2GB)
+            td.alnright
+              =  company.num_of_2gb
+              span.unit-name
+                | 台
+            td.alnright
+              =  "¥2,980"
+            td.alnright
+              =  "¥" + company.sum_of_2gb.to_s(:delimited)
+        - if company.sum_of_5gb > 0
+          tr
+            td
+              |  iGOQ端末レンタル料(5GB)
+            td.alnright
+              = company.num_of_5gb
+              span.unit-name
+                | 台
+            td.alnright
+              = "¥3,980"
+            td.alnright
+              = "¥" + company.sum_of_5gb.to_s(:delimited)
         - if company.sum_of_excess_charge > 0
           tr
             td
@@ -90,6 +103,30 @@
               = "¥" + company.sum_of_excess_charge_tel.to_s(:delimited)
             td.alnright
               = "¥" + company.sum_of_excess_charge_tel.to_s(:delimited)
+        - if company.sum_of_option_price > 0
+          tr
+            td
+              = "IP無線使用料"
+            td.alnright
+              = company.num_of_option_price
+              span.unit-name
+                | 台
+            td.alnright
+              = "¥500"
+            td.alnright
+              = "¥" + company.sum_of_option_price.to_s(:delimited)
+        - if company.sum_of_option_discount > 0
+          tr
+            td
+              = "グループ会社割引"
+            td.alnright
+              = company.num_of_option_discount
+              span.unit-name
+                | 台
+            td.alnright
+              = "- ¥500"
+            td.alnright
+              = "- ¥" + company.sum_of_option_discount.to_s(:delimited)
         tr
           td.blank
           td[colspan="2"]

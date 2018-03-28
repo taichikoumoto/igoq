@@ -35,6 +35,26 @@ class Company < ApplicationRecord
     phones.map(&:price).inject(:+) || 0
   end
 
+  def sum_of_2gb
+    phones.map do |phone|
+      phone.price == 2980 ? 2980 : 0
+    end.inject(:+) || 0
+  end
+
+  def sum_of_5gb
+    phones.map do |phone|
+      phone.price == 3980 ? 3980 : 0
+    end.inject(:+) || 0
+  end
+
+  def num_of_2gb
+    phones.count { |phone| phone.price == 2980 }
+  end
+
+  def num_of_5gb
+    phones.count { |phone| phone.price == 3980 }
+  end
+
   def sum_of_excess_charge
     sum_of_excess_charge_sms + sum_of_excess_charge_tel
   end
@@ -53,6 +73,14 @@ class Company < ApplicationRecord
 
   def sum_of_option_discount
     phones.map(&:option_discount).inject(:+) || 0
+  end
+
+  def num_of_option_price
+    phones.count { |phone| phone.option_price > 0 }
+  end
+
+  def num_of_option_discount
+    phones.count { |phone| phone.option_discount > 0 }
   end
 
   def total_pages
