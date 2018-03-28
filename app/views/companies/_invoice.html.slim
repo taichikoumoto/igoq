@@ -8,7 +8,7 @@
     .invoiceHead.clearfix
       .alpha
         .recipientNameBox
-          p.recipientName
+          p.recipientName style="font-size: #{company.name.length > 17 ? (19.5 * 17 / company.name.length) : 19.5}px"
             = "#{company.name} 御中"
           p
             | 毎度格別のお引き立てありがとうございます。<br>
