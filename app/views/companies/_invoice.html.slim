@@ -185,7 +185,7 @@
             td.alncenter
               = phone.number
             td.alnleft
-              |  iGOQ端末レンタル料(2GB)
+              =  "iGOQ端末レンタル料(#{phone.price == 2980 ? "2GB" : "5GB"})"
             td.alnright
               =  "¥" + phone.price.to_s(:delimited)
           - if phone.excess_charge_sms > 0
